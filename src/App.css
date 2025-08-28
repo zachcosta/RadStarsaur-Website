@@ -1,0 +1,116 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a2c7a 0%, #2d1b4e 100%);
+  position: relative;
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--bg-pattern);
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.App-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  position: relative;
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.App-header p {
+  font-size: 1.1rem;
+  color: #718096;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.App-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.nav-link {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid transparent;
+  color: #4a5568;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #2d3748;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  color: white;
+  border-color: #8b5cf6;
+}
+
+.App-main {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .App-header p {
+    font-size: 1rem;
+  }
+  
+  .App-main {
+    padding: 1rem;
+  }
+  
+  .App-nav {
+    gap: 0.75rem;
+  }
+  
+  .nav-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
