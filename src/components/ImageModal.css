@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--color-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--color-bg-card);
   border-radius: 12px;
   width: 90%;
   height: 90%;
@@ -53,8 +53,8 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
+  background: var(--color-overlay-dark);
+  color: var(--color-text-white);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -68,7 +68,7 @@
 }
 
 .modal-close:hover {
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--color-overlay-darker);
   transform: scale(1.1);
 }
 
@@ -103,8 +103,8 @@
 
 .modal-info {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.95);
-  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  background: var(--color-card-bg-modal);
+  border-top: 1px solid var(--color-border-light);
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 10;
@@ -113,13 +113,13 @@
 .modal-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .modal-description {
   font-size: 1rem;
-  color: #4a5568;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -127,8 +127,8 @@
 .modal-category {
   display: inline-block;
   font-size: 0.9rem;
-  color: #718096;
-  background: #edf2f7;
+  color: var(--color-text-muted);
+  background: var(--color-category-bg);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 500;

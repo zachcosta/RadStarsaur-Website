@@ -12,10 +12,10 @@
 .page-content h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--color-text-primary);
   margin-bottom: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -24,21 +24,21 @@
 .page-content h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #4a5568;
+  color: var(--color-text-secondary);
   margin: 2rem 0 1rem 0;
 }
 
 .page-content h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--color-text-primary);
   margin: 1.5rem 0 0.5rem 0;
 }
 
 .page-content p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #4a5568;
+  color: var(--color-text-secondary);
   margin-bottom: 1.5rem;
 }
 
@@ -49,10 +49,10 @@
 }
 
 .about-text {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-card-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--color-shadow-light);
 }
 
 /* Contact Page Styles */
@@ -65,10 +65,10 @@
 }
 
 .contact-info {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-card-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--color-shadow-light);
 }
 
 .contact-methods {
@@ -78,27 +78,27 @@
 .contact-method {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: #f7fafc;
+  background: var(--color-bg-secondary);
   border-radius: 8px;
 }
 
 .contact-link {
-  color: #8b5cf6;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .contact-link:hover {
-  color: #a855f7;
+  color: var(--color-primary-light);
   text-decoration: underline;
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-card-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--color-shadow-light);
 }
 
 .form-group {
@@ -109,14 +109,14 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #2d3748;
+  color: var(--color-text-primary);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s ease;
@@ -125,13 +125,13 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-shadow-primary);
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-text-white);
   border: none;
   padding: 0.75rem 2rem;
   font-size: 1rem;
@@ -143,7 +143,7 @@
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px var(--color-shadow-primary-hover);
 }
 
 /* Responsive Design */
