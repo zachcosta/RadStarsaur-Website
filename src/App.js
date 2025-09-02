@@ -5,12 +5,17 @@ import ArtworkGrid from './components/ArtworkGrid';
 import ImageModal from './components/ImageModal';
 import About from './components/About';
 import Contact from './components/Contact';
+import AdventureSelector from './components/AdventureSelector';
+import AdventureViewer from './components/AdventureViewer';
+import { featureFlags } from './config/featureFlags';
 import bgPattern from './BG_Pattern.png';
 
 function App() {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('gallery');
+  const [spooktoberPage, setSpooktoberPage] = useState('selector'); // 'selector' or 'viewer'
+  const [selectedAdventure, setSelectedAdventure] = useState(null);
 
   const handleArtworkClick = (artwork) => {
     setSelectedArtwork(artwork);
@@ -26,11 +31,28 @@ function App() {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const handleAdventureSelect = (adventureId) => {
+    setSelectedAdventure(adventureId);
+    setSpooktoberPage('viewer');
+  };
+
+  const handleAdventureBack = () => {
+    setSpooktoberPage('selector');
+    setSelectedAdventure(null);
+  };
+
+  // Reset to gallery if Spooktober is hidden and user is on that page
+  React.useEffect(() => {
+    if (!featureFlags.showSpooktoberAdventures && currentPage === 'spooktober') {
+      setCurrentPage('gallery');
+    }
+  }, [currentPage]);
+
   return (
     <div className="App" style={{ '--bg-pattern': `url(${bgPattern})` }}>
       <header className="App-header">
-        <h1>RadStarsaur Art Portfolio</h1>
-        <p>A collection of digital artwork and illustrations</p>
+        <h1>RadStarsaur Art</h1>
+        <p>A collection of digital artwork and illustrations by Zachary Costa</p>
         
         <nav className="App-nav">
           <button 
@@ -39,6 +61,14 @@ function App() {
           >
             Gallery
           </button>
+          {featureFlags.showSpooktoberAdventures && (
+            <button 
+              className={`nav-link ${currentPage === 'spooktober' ? 'active' : ''}`}
+              onClick={() => setCurrentPage('spooktober')}
+            >
+              Spooktober Adventures
+            </button>
+          )}
           <button 
             className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
             onClick={() => setCurrentPage('about')}
@@ -72,6 +102,20 @@ function App() {
             artworks={artworkData} 
             onArtworkClick={handleArtworkClick}
           />
+        )}
+        
+        {featureFlags.showSpooktoberAdventures && currentPage === 'spooktober' && (
+          <>
+            {spooktoberPage === 'selector' && (
+              <AdventureSelector onAdventureSelect={handleAdventureSelect} />
+            )}
+            {spooktoberPage === 'viewer' && selectedAdventure && (
+              <AdventureViewer 
+                adventureId={selectedAdventure} 
+                onBack={handleAdventureBack} 
+              />
+            )}
+          </>
         )}
         
         {currentPage === 'about' && <About />}
