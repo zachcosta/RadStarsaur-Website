@@ -55,6 +55,64 @@
   box-shadow: 0 4px 6px var(--color-shadow-light);
 }
 
+.avatar-signature-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 4px 12px var(--color-shadow-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.about-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--color-shadow-medium);
+}
+
+.signature-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  min-width: 200px;
+}
+
+.about-label {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.about-signature {
+  height: 80px;
+  width: auto;
+  max-width: 300px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px var(--color-shadow-light));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-top: auto;
+}
+
+.about-signature:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 4px 12px var(--color-shadow-medium));
+}
+
 /* Contact Page Styles */
 .contact-content {
   display: grid;

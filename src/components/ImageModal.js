@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import './ImageModal.css';
 
 const ImageModal = ({ artwork, onClose }) => {
+  const isVideo = (filename) => {
+    return filename.toLowerCase().endsWith('.mp4');
+  };
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -28,11 +32,22 @@ const ImageModal = ({ artwork, onClose }) => {
     <div className="modal-backdrop" onClick={handleBackdropClick}>
       <div className="modal-content">
         <div className="modal-background-image">
-          <img
-            src={`/Artworks/${artwork.filename}`}
-            alt=""
-            className="blurred-background"
-          />
+          {isVideo(artwork.filename) ? (
+            <video
+              src={`/Artworks/${artwork.filename}`}
+              className="blurred-background"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={`/Artworks/${artwork.filename}`}
+              alt=""
+              className="blurred-background"
+            />
+          )}
         </div>
         
         <button className="modal-close" onClick={onClose}>
@@ -43,11 +58,24 @@ const ImageModal = ({ artwork, onClose }) => {
         </button>
         
         <div className="modal-image-container">
-          <img
-            src={`/Artworks/${artwork.filename}`}
-            alt={artwork.altText}
-            className="modal-image"
-          />
+          {isVideo(artwork.filename) ? (
+            <video
+              src={`/Artworks/${artwork.filename}`}
+              className="modal-image"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={`/Artworks/${artwork.filename}`}
+              alt={artwork.altText}
+              className="modal-image"
+            />
+          )}
         </div>
         
         <div className="modal-info">

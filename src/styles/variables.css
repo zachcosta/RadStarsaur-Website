@@ -1,46 +1,45 @@
 :root {
-  /* Primary Colors */
-  --color-primary: #8b5cf6;
-  --color-primary-light: #a855f7;
-  --color-primary-dark: #7c3aed;
+  /* Primary Colors - Warm pink/purple tones that complement the card background */
+  --color-primary: #e91e63;
+  --color-primary-light: #f06292;
+  --color-primary-dark: #c2185b;
   
-  /* Background Colors */
-  --color-bg-primary: linear-gradient(135deg, #4a2c7a 0%, #2d1b4e 100%);
-  --color-bg-secondary: #f7fafc;
+  /* Background Colors - Warm, cohesive backgrounds */
+  --color-bg-primary: linear-gradient(135deg, #2d1b4e 0%, #4a2c7a 100%);
+  --color-bg-secondary: #fef7f9;
   --color-bg-card: #fff5f5;
-  --color-bg-skeleton: #f0f0f0;
-  --color-bg-skeleton-alt: #e0e0e0;
+  --color-bg-skeleton: #f8f0f3;
+  --color-bg-skeleton-alt: #f0e8eb;
   
-  /* Text Colors */
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-muted: #718096;
-  --color-text-light: #a0aec0;
+  /* Text Colors - Warm, cohesive text palette */
+  --color-text-primary: #2d1b4e;
+  --color-text-muted: #6b4e71;
+  --color-text-light: #9c7fa3;
   --color-text-white: #fff5f5;
   
-  /* Border Colors */
-  --color-border: #e2e8f0;
-  --color-border-light: rgba(226, 232, 240, 0.5);
+  /* Border Colors - Warm, subtle borders */
+  --color-border: #f0e8eb;
+  --color-border-light: rgba(240, 232, 235, 0.5);
   
   /* Overlay Colors */
-  --color-overlay: rgba(0, 0, 0, 0.7);
-  --color-overlay-dark: rgba(0, 0, 0, 0.8);
-  --color-overlay-darker: rgba(0, 0, 0, 0.9);
+  --color-overlay: rgba(45, 27, 78, 0.7);
+  --color-overlay-dark: rgba(45, 27, 78, 0.8);
+  --color-overlay-darker: rgba(45, 27, 78, 0.9);
   
-  /* Card Background Colors */
-  --color-card-bg: rgba(255, 245, 245, 0.9);
+  /* Card Background Colors - Keeping this unchanged as requested */
+  --color-card-bg: rgba(255, 183, 227, 0.9);
   --color-card-bg-solid: rgba(255, 245, 245, 1);
   --color-card-bg-modal: rgba(255, 245, 245, 0.95);
   
-  /* Category Badge Colors */
-  --color-category-bg: #edf2f7;
+  /* Category Badge Colors - Warm, cohesive badge colors */
+  --color-category-bg: rgba(255, 183, 227, 0.9);
   
-  /* Shadow Colors */
-  --color-shadow-light: rgba(0, 0, 0, 0.1);
-  --color-shadow-medium: rgba(0, 0, 0, 0.15);
-  --color-shadow-primary: rgba(139, 92, 246, 0.1);
-  --color-shadow-primary-hover: rgba(139, 92, 246, 0.3);
+  /* Shadow Colors - Warm, cohesive shadows */
+  --color-shadow-light: rgba(45, 27, 78, 0.1);
+  --color-shadow-medium: rgba(45, 27, 78, 0.15);
+  --color-shadow-primary: rgba(233, 30, 99, 0.1);
+  --color-shadow-primary-hover: rgba(233, 30, 99, 0.3);
   
-  /* Animation Colors */
-  --color-shimmer: rgba(255, 245, 245, 0.4);
+  /* Animation Colors - Warm shimmer effect */
+  --color-shimmer: rgba(255, 183, 227, 0.4);
 }
