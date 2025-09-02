@@ -1,0 +1,598 @@
+.adventure-viewer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.adventure-viewer.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-bg-primary);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Two-line Unified Header */
+.unified-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--color-bg-card);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--color-shadow-light);
+  gap: 0.75rem;
+}
+
+/* First line: Back button, title, view toggle */
+.header-line-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.back-button {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  min-width: 140px;
+}
+
+.back-button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.adventure-title h2 {
+  font-size: 1.3rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.view-mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-btn {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.toggle-btn:hover:not(.active) {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+/* Second line: Chapter and page navigation */
+.header-line-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 250px;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--color-secondary-dark);
+  transform: translateY(-1px);
+}
+
+.nav-btn:disabled {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.chapter-btn {
+  background: var(--color-primary);
+  min-width: 280px;
+}
+
+.chapter-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.page-btn {
+  background: var(--color-secondary);
+  min-width: 250px;
+}
+
+.navigation-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 200px;
+  text-align: center;
+}
+
+.chapter-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.page-number {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Gallery View Styles */
+.gallery-view {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chapter-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px var(--color-shadow-light);
+}
+
+.chapter-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  flex: 1;
+}
+
+.chapter-controls .nav-btn {
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.chapter-controls .nav-btn:hover:not(:disabled) {
+  background: var(--color-secondary-dark);
+  transform: translateY(-2px);
+}
+
+.chapter-controls .nav-btn:disabled {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.nav-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: auto;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.scene-info {
+  text-align: center;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapter-info {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.scene-title {
+  display: block;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.overall-progress {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.scene-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.scene-media {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px var(--color-shadow-medium);
+}
+
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+}
+
+.thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 3px solid transparent;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: var(--color-primary);
+}
+
+.thumbnail-media {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+}
+
+.thumbnail-number {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Scroll View Styles */
+.scroll-view {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.chapter-section {
+  margin-bottom: 2rem;
+}
+
+.chapter-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--color-shadow-light);
+}
+
+.chapter-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.chapter-label {
+  background: var(--color-secondary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.scroll-scene {
+  background: var(--color-bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--color-shadow-light);
+  transition: all 0.3s ease;
+}
+
+.scroll-scene:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px var(--color-shadow-medium);
+}
+
+.scroll-scene-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.scene-number {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 50px;
+  height: auto;
+}
+
+.scene-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.scroll-scene-content {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-scene-media {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+}
+
+/* Viewer Controls */
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--color-bg-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px var(--color-shadow-light);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.fullscreen-btn {
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.fullscreen-btn:hover {
+  background: var(--color-secondary-dark);
+  transform: translateY(-2px);
+}
+
+.keyboard-hints {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.keyboard-hints span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  background: var(--color-bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* Fullscreen Styles */
+.adventure-viewer.fullscreen .adventure-viewer-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.adventure-viewer.fullscreen .scene-display {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adventure-viewer.fullscreen .scene-media {
+  max-height: 80vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .unified-header {
+    gap: 0.5rem;
+  }
+  
+  .header-line-1 {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .header-line-2 {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .navigation-info {
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+  
+  .scene-info {
+    min-width: auto;
+  }
+  
+  .keyboard-hints {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .adventure-viewer {
+    padding: 0.5rem;
+  }
+  
+  .unified-header {
+    padding: 0.75rem;
+  }
+  
+  .adventure-title h2 {
+    font-size: 1.1rem;
+  }
+  
+  .gallery-thumbnails {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .thumbnail-media {
+    height: 50px;
+  }
+  
+  .scroll-scene-header {
+    padding: 1rem;
+  }
+  
+  .scroll-scene-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .unified-header {
+    gap: 0.5rem;
+  }
+  
+  .back-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 120px;
+  }
+  
+  .toggle-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .nav-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    min-width: 180px;
+  }
+  
+  .chapter-btn {
+    min-width: 200px;
+  }
+  
+  .page-btn {
+    min-width: 180px;
+  }
+  
+  .navigation-info {
+    min-width: 160px;
+  }
+}
