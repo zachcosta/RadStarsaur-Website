@@ -122,6 +122,17 @@
   margin: 0 auto;
 }
 
+.contact-content-centered {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: none;
+  gap: 0;
+}
+
+.contact-content-centered .contact-info {
+  max-width: 600px;
+}
+
 .contact-info {
   background: var(--color-card-bg);
   padding: 2rem;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Pages.css';
+import { featureFlags } from '../config/featureFlags';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const Contact = () => {
     <div className="page-content">
       <div className="page-container">
         <h1>Contact Me</h1>
-        <div className="contact-content">
+        <div className={`contact-content ${!featureFlags.showContactForm ? 'contact-content-centered' : ''}`}>
           <div className="contact-info">
             <h2>Get in Touch</h2>
             <p>
@@ -56,61 +57,63 @@ const Contact = () => {
             </div>
           </div>
           
-          <div className="contact-form">
-            <h2>Send a Message</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="name">Name *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="email">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="message">Message *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-              
-              <button type="submit" className="submit-btn">
-                Send Message
-              </button>
-            </form>
-          </div>
+          {featureFlags.showContactForm && (
+            <div className="contact-form">
+              <h2>Send a Message</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="name">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="message">Message *</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+                
+                <button type="submit" className="submit-btn">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </div>
