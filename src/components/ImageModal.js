@@ -80,8 +80,6 @@ const ImageModal = ({ artwork, onClose }) => {
         
         <div className="modal-info">
           <h2 className="modal-title">{artwork.name}</h2>
-          <p className="modal-description">{artwork.altText}</p>
-          <span className="modal-category">{artwork.category}</span>
         </div>
       </div>
     </div>
