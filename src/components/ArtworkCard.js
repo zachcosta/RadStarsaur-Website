@@ -65,7 +65,6 @@ const ArtworkCard = ({ artwork, onClick }) => {
       
       <div className="artwork-info">
         <h3 className="artwork-title">{artwork.name}</h3>
-        <span className="artwork-category">{artwork.category}</span>
       </div>
     </div>
   );

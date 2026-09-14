@@ -1,20 +1,85 @@
+.artwork-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-filter {
+  background: var(--color-card-bg);
+  border: 2px solid transparent;
+  color: var(--color-text-muted);
+  padding: 0.65rem 1.35rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-filter:hover {
+  background: var(--color-card-bg-solid);
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-shadow-medium);
+}
+
+.gallery-filter.active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+}
+
 .artwork-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   padding: 1rem 0;
 }
 
+.artwork-grid .artwork-card {
+  flex: 1 1 250px;
+  max-width: 320px;
+  min-width: min(250px, 100%);
+}
+
 @media (max-width: 768px) {
+  .gallery-filters {
+    gap: 0.5rem;
+  }
+
+  .gallery-filter {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+  }
+
   .artwork-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+  }
+
+  .artwork-grid .artwork-card {
+    flex-basis: 200px;
+    max-width: 280px;
+    min-width: min(200px, 100%);
   }
 }
 
 @media (max-width: 480px) {
   .artwork-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.75rem;
+  }
+
+  .artwork-grid .artwork-card {
+    flex-basis: 150px;
+    max-width: 100%;
+    min-width: min(150px, 100%);
   }
 }
