@@ -10,10 +10,20 @@ const FILTERS = [
   { id: 'Fan Art', label: 'Fan Art' },
 ];
 
+const shuffleArtworks = (items) => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const ArtworkGrid = ({ artworks, onArtworkClick }) => {
   const [activeFilter, setActiveFilter] = useState('portfolio');
+  const [shuffledArtworks] = useState(() => shuffleArtworks(artworks));
 
-  const filteredArtworks = artworks.filter((artwork) => {
+  const filteredArtworks = shuffledArtworks.filter((artwork) => {
     if (activeFilter === 'portfolio') {
       return artwork.portfolio === true;
     }
